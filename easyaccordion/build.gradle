@@ -1,4 +1,8 @@
+apply plugin: 'maven-publish' // Apply this plugin at the top of your library build.gradle
 apply plugin: 'com.android.library'
+
+def githubProperties = new Properties()
+githubProperties.load(new FileInputStream(rootProject.file("local.properties"))) //Set env variable GPR_USER & GPR_API_KEY if not adding a properties file
 
 ext {
     PUBLISH_GROUP_ID = 'com.riyagayasen.android'
@@ -25,6 +29,27 @@ android {
     compileOptions {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/pmachapman/Android_accordion_view")
+            credentials {
+                username = githubProperties['gpr.user'] ?: System.getenv("GPR_USER")
+                password = githubProperties['gpr.key'] ?: System.getenv("GPR_API_KEY")
+            }
+        }
+    }
+    publications {
+        github(MavenPublication) {
+            groupId PUBLISH_GROUP_ID // Replace with group ID
+            artifactId PUBLISH_ARTIFACT_ID
+            version PUBLISH_VERSION
+            artifact("$buildDir/outputs/aar/${PUBLISH_ARTIFACT_ID}-release.aar")
+        }
     }
 }
 
