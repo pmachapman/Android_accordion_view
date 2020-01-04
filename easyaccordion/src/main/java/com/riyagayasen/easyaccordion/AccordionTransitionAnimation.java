@@ -9,16 +9,17 @@ import android.widget.LinearLayout;
  * Created by riyagayasen on 16/10/16.
  */
 
-public class AccordionTransitionAnimation extends Animation{
+@SuppressWarnings({"WeakerAccess", "unused"})
+public class AccordionTransitionAnimation extends Animation {
     public final static int COLLAPSE = 1;
     public final static int EXPAND = 0;
 
-    private View view;
+    private final View view;
     private int endHeight;
     private int endBottomMargin;
     private int endTopMargin;
-    private int type;
-    private LinearLayout.LayoutParams layoutParams;
+    private final int type;
+    private final LinearLayout.LayoutParams layoutParams;
 
     public AccordionTransitionAnimation(View view, int duration, int type) {
 
@@ -30,7 +31,7 @@ public class AccordionTransitionAnimation extends Animation{
         endBottomMargin = layoutParams.bottomMargin;
         endTopMargin = layoutParams.topMargin;
         this.type = type;
-        if(this.type == EXPAND) {
+        if (this.type == EXPAND) {
             layoutParams.height = 0;
             layoutParams.topMargin = 0;
             layoutParams.bottomMargin = 0;
@@ -41,11 +42,11 @@ public class AccordionTransitionAnimation extends Animation{
         view.setVisibility(View.VISIBLE);
     }
 
-    public int getHeight(){
+    public int getHeight() {
         return view.getHeight();
     }
 
-    public void setHeight(int height){
+    public void setHeight(int height) {
         endHeight = height;
     }
 
@@ -70,10 +71,10 @@ public class AccordionTransitionAnimation extends Animation{
 
         super.applyTransformation(interpolatedTime, t);
         if (interpolatedTime < 1.0f) {
-            if(type == EXPAND) {
-                layoutParams.height =  (int)(endHeight * interpolatedTime);
-                layoutParams.topMargin = (int)(endTopMargin * interpolatedTime);
-                layoutParams.bottomMargin = (int)(endBottomMargin * interpolatedTime);
+            if (type == EXPAND) {
+                layoutParams.height = (int) (endHeight * interpolatedTime);
+                layoutParams.topMargin = (int) (endTopMargin * interpolatedTime);
+                layoutParams.bottomMargin = (int) (endBottomMargin * interpolatedTime);
                 view.invalidate();
             } else {
                 layoutParams.height = (int) (endHeight * (1 - interpolatedTime));
@@ -83,14 +84,12 @@ public class AccordionTransitionAnimation extends Animation{
 
             view.requestLayout();
         } else {
-            if(type == EXPAND) {
+            if (type == EXPAND) {
                 layoutParams.height = LinearLayout.LayoutParams.WRAP_CONTENT;
                 view.requestLayout();
-            }else{
+            } else {
                 view.setVisibility(View.GONE);
             }
         }
     }
-
-
 }

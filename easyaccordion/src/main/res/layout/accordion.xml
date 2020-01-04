@@ -12,24 +12,24 @@
         android:orientation="horizontal">
         <ImageView
             android:layout_width="wrap_content"
-
             android:layout_gravity="center"
             android:layout_height="wrap_content"
-            android:id="@+id/dropdown_image"
+            android:id="@+id/dropDown_image"
+            android:contentDescription="@string/down"
             android:src="@drawable/ic_arrow_drop_down_black_24dp"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:visibility="gone"
-            android:id="@+id/dropup_image"
+            android:id="@+id/dropUp_image"
+            android:contentDescription="@string/up"
             android:src="@drawable/ic_arrow_drop_up_black_24dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/heading"
             android:layout_margin="10dp"
-            tools:text="What is the most awkward moment is this world?"
             android:textStyle="bold"
             />
 

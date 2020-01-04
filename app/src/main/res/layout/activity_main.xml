@@ -26,18 +26,18 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Demo accordion text Demo accordion text Demo accordion text Demo accordion text Demo accordion text Demo accordion text Demo accordion text Demo accordion text" />
+            android:text="@string/demo_accordion_text_demo_accordion_text_demo_accordion_text_demo_accordion_text_demo_accordion_text_demo_accordion_text_demo_accordion_text_demo_accordion_text" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Test Button"
+            android:text="@string/test_button"
             android:id="@+id/button_2"
             android:layout_below="@+id/textView" />
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Test Button 2"
+            android:text="@string/test_button_2"
             android:layout_below="@+id/button_2" />
 
 

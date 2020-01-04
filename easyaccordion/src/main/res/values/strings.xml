@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">EasyAccordion</string>
+    <string name="down">Down</string>
+    <string name="up">Up</string>
 </resources>

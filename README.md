@@ -27,7 +27,7 @@ The accordion component can also be generated from the java class
         
          AccordionView accordionView = new AccordionView(this);
 
-The best way to use this component is from the layout xml file. The following example with llustrate the use: 
+The best way to use this component is from the layout xml file. The following example illustrates the use:
 
       <com.riyagayasen.easyaccordion.AccordionView
         android:layout_width="match_parent"

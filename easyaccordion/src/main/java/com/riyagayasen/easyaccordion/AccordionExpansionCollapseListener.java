@@ -1,6 +1,6 @@
 package com.riyagayasen.easyaccordion;
 
-/**
+/*
  * Created by riyagayasen on 24/10/16.
  */
 
@@ -8,8 +8,7 @@ package com.riyagayasen.easyaccordion;
  * This interface acts as a listener for the expansion and collapse of the accordion
  */
 public interface AccordionExpansionCollapseListener {
-    public void onExpanded(AccordionView view);
-    public void onCollapsed(AccordionView view);
+    void onExpanded(AccordionView view);
 
-
+    void onCollapsed(AccordionView view);
 }
